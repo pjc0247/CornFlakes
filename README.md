@@ -8,6 +8,19 @@ packet serializer/unserializer for ruby
 sample
 ----
 __packet_defination__
+
+C에서의 패킷
+```C++
+struct DummyPacket{
+  int size, id;
+  int dummy1;
+  char dummy2[32+1]; // +1 for 'null'
+  char dummy3[8+1]; // +1 for 'null'
+};
+```
+
+CornFlakes를 이용해 위의 패킷을 구현.
+size, id필드는 자동으로 기입됨.
 ```ruby
 class DummyPacket
   id PACKET_ID_DUMMY
