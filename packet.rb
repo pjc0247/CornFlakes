@@ -23,6 +23,8 @@ class Packet
       case type
         when "int"
           size += 4
+		when "float"
+		  size += 4
         when "string"
           size += item[3]+1
       end
@@ -69,5 +71,9 @@ class Packet
   def self.string key, size, value=""
     self.fmt.concat "a"+(size+1).to_s
     self.items.push([key, value, "string", size])
+  end
+  def self.float key, value=0
+	self.fmt.concat "F"
+	self.items.push([key, value ,"float"])
   end
 end
