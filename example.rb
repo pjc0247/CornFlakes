@@ -1,9 +1,10 @@
 require 'eventmachine'
-require 'packet.rb'
+load 'packet.rb'
 
 class Foo < Packet
   id 3
   int "a"
+  float "bsdf"
 end
 
 class LoginRequest < Packet
